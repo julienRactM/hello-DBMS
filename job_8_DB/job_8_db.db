@@ -1,0 +1,86 @@
+Fixer souçis lancement Task
+
+
+Se connecter à un EC2 pour valider lancement de l'image
+
+Policy seul un role peut accéder à l'ECS
+
+
+Créer API Gateway
+
+Créer ELB ? Choix ?
+
+
+
+
+Change endpoint to full access or this to something more secure. 
+
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "ecr:*",
+      "Resource": "*"
+    }
+  ]
+}
+
+
+Something like 
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": [
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage"
+      ],
+      "Resource": "arn:aws:ecr:region:account-id:repository/repo-name"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------
+Architecturea
+dev env local --> Stock code sur ECR private --> entraînement en cloud ECS ou Batch (run code présent sur ECR) --> Stock model container ECR 
+--> Delete code sur ECR --> Create Lambda, Gives it a role to access ECR ressources --> API GATEWAY call with lambda on ECR ou sur ECS et retourne une prédiction à l'utilisateur --> Sécuriser le processus, limiter API calls etc ...
+
+
+Nécessite : 
+VPC  w Endpoints ?
+Security Group pour ECS qui autorise les échanges avec ECR et ceux avec API?
+Nécessitée d'Internet Gateway ou NAT Gateway si API GW échange avec ECR ?
+
+
+
+
+
+
+
+
+
+
+
