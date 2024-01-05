@@ -1,0 +1,40 @@
+
+
+<html>
+
+<head>
+  <title>SQLite Flask App</title>
+</head>
+
+<body>
+  <h1>Data from SQLite Database</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Coal</th>
+        <th>Gas</th>
+        <th>Oil</th>
+        <th>Hydro</th>
+        <th>Renewable</th>
+        <th>Nuclear</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for country in query_results %}
+      <tr>
+        <td>{{ country.Country }}</td>
+        <td>{{ country.Coal }}</td>
+        <td>{{ country.Gas }}</td>
+        <td>{{ country.Oil }}</td>
+        <td>{{ country.Hydro }}</td>
+        <td>{{ country.Renewable }}</td>
+        <td>{{ country.Nuclear }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</body>
+
+</html>

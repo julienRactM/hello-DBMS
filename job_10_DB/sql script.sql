@@ -12,6 +12,7 @@ CREATE TABLE world (
     Coal FLOAT,
     Gas FLOAT,
     Oil FLOAT,
+
     Hydro FLOAT,
     Renewable FLOAT,
     Nuclear FLOAT
