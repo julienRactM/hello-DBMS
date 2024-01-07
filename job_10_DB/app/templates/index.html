@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+      <h2>Contexte du projet</h2>
+      <article>
+        <p>
+          Conception d'un outil de calculation de l'empreinte carbonne à l'échelle mondiale 
+          dans le but de sauver le monde
+        </p>
+      </article>
+      <h2>Observations</h2>
+      {% for i in range(query_results|length) %}
+        <table>
+          <caption>{{ titles[i] }}</caption>
+          <thead>
+            <tr>
+              {% for col in cols[i] %}
+                <th>{{ col[1] }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for country in query_results[i] %}
+                <tr>
+                    {% for cell in country %}
+                      <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        {% if comments[i] != 0 %}
+          <article>
+              <p>{{ comments[i] }}</p>
+          </article>
+        {% endif %}     
+      {% endfor %}
+
+{% endblock %}

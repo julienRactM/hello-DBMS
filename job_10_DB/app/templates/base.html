@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Carbone App</title>
+    <link rel="stylesheet" type="text/css" href="../static/main.css">
+  </head>
+  
+  <body>
+    <header>
+      <h1 class="outlined-text">Projet Carbon Footprint SQL</h1>
+      <nav class="navbar">
+        <a href="/" class="nav-link {% if active_tab == 'home' %}active{% endif %}">Home</a>
+        <a href="/(5.)" class="nav-link {% if active_tab == '(5.)' %}active{% endif %}">(5.)</a>
+        <a href="/filter" class="nav-link {% if active_tab == 'filter' %}active{% endif %}">Filter(6.)</a>
+        <a href="/filter_table" class="nav-link {% if active_tab == 'filter_table' %}active{% endif %}">Filter Table(7. 8. 9. 10.)</a>
+        <a href="/world" class="nav-link {% if active_tab == 'world' %}active{% endif %}">World</a>
+        <a href="/country" class="nav-link {% if active_tab == 'country' %}active{% endif %}">Country</a>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+
+      {% endblock %}
+    </main>
+    
+    <footer>
+     <article>
+      <p>
+        Calculateur d'Empreinte Carbone 
+      </p>
+     </article>
+    </footer>
+  </body>
+
+</html>
+

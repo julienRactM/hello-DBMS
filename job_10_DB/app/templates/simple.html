@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <table>
+      <caption>{{ title }}</caption>
+      <thead>
+        <tr>
+          <th>{{ cols[0][1] }}</th>
+          {% for col in cols[1:] %}
+            <th>{{ col[1] }} %</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for cell in query_results %}
+          <tr>
+            {% for i in range(7) %}
+              <td>{{ cell[i] }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+  </body>
+
+</html>
+
+{% endblock %}

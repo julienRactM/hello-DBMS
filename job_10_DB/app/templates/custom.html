@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+        {% if active_tab == 'filter' %}
+        <form action="/filter" method="post">
+        {% elif active_tab == 'filter_table' %}
+        <form action="/filter_table" method="post">
+        {% endif %} 
+
+            <label for="opts-select">Choose a location:</label>
+            <select name="select_opts" id="opts-select", value ={{ country_value }}>
+                {% for opt in select_options %}
+                    <option value="{{ opt }}" {% if opt == country_value %} selected {% endif %}>{{ opt }}</option>
+                {% endfor %}
+            </select>
+            {% if active_tab == 'filter_table' %}
+                <label for="kw-h"> Consommation en kw/h :</label>
+                <input type="number" name="kw-hours" id="kw-h" step="1", value={{ consumed_e }}>
+            {% endif %}
+
+            <button type="submit" class="styled-button">Execute Query</button>
+        </form>
+
+        <table>
+          {% if titles %}
+          <caption>{{ titles }}</caption>
+          {% endif %}  
+          <thead>
+            <tr>
+            
+                {% if active_tab == 'filter' %}
+                    <th>{{ cols[0][1] }}</th>
+                    {% for col in cols[1:] %}
+                        <th>{{ col[1] }} %</th>
+                    {% endfor %}
+
+                {% elif active_tab == 'filter_table' %}
+                    {% for col in cols %}
+                    <th>{{ col }}</th>
+                    {% endfor %}
+                {% endif %} 
+
+            </tr>
+          </thead>
+          <tbody>
+            {% if active_tab == 'filter' %}
+                {% for target in query_result %}
+                    <tr>
+                        {% for cell in target %}
+                        <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            
+            {% elif active_tab == 'filter_table' %}
+                {% for i in range(6) %}
+                    <tr>
+                        <td>{{ rows_name[i] }}</td>
+                        <td>{{ query_result[i+1] }}</td>
+                        <td>{{ median[i] }}</td>
+                        <td>{{ query_result[i+1] }} % x {{ median[i] }} = {{  (query_result[i+1]*median[i]/100)|round }}</td>
+
+                    </tr>
+                {% endfor %}
+
+            {% endif %}
+        </tbody>
+        </table>
+        {% if comments %}
+            {% for i in range(comments|length) %}
+                <article>
+                    <p>{{ comments[i] }}</p>
+                </article>
+            {% endfor %}
+
+
+        {% endif %}   
+{% endblock %}
