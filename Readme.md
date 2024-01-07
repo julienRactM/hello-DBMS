@@ -1,5 +1,5 @@
 Projet SQL - Ract-Mugnerot Julien B3-IA
-Il sera honnêtement plus intéressant pour le correcteur de suivre la correction sur le fichier World SQL qui contient images et une présentation plus élégante du code SQL
+Un fichier World est également à disposition.
 
 
 Veille scientifique
@@ -23,20 +23,20 @@ Un Data Lake est une infrastructure de stockage qui permet de stocker des donné
 Un Data Warehouse est une base de données centralisée et structurée conçue pour stocker des données provenant de différentes sources après avoir exécuté sur elles des tâches ETL (Extract, Transform, Load).
 Un Lake House est une approche hybride qui combine les avantages des deux notions précédentes, avec l’organisation propre au Data Lake et la structure adaptée aux tâches d’ETL.
 
- 
+
 
 D. Donnez une définition et des exemples de systèmes de gestion de bases de données avec des illustrations.
 Les SGBD sont des logiciels destinés au stockage, et à la gestion des données de manières structurée.
 Ils facilitent leur manipulation et leur mise à jour.
 Mysql, Oracle Database et MongoDB comptent parmi les SGBD les plus connus.
- 
+
 
 E. Qu’est-ce qu’une base de données relationnelle ? Qu’est-ce qu’une base de données non relationnelle ? Donnez la différence entre les deux avec des exemples d’applications.
 Une base de données relationnelle est normalement composée de plusieurs tables indirectement reliées entre elles par l’utilisation de clé étrangère, colonne de la table contenant des identifiants que l’on retrouve dans la clé primaire d’une autre table. Toutes les tables de base de données ont par défaut une clé primaire qui permet par le biais de requêtes SQL de créer une table temporaire où extraire de nouvelles données composés d’informations provenant des deux tables.
 Ex pour une base de données relationnelle : pour une société de location de vélos pourrait comprendre des tables distinctes pour les clients, les vélos, les locations, détails du fournisseur, etc. Les relations entre ces tables permettre par exemple d’étudier les taux de locations des différents vélos proposés selon l’âge ou le sexe du client sans avoir besoin de faire appel aux détails du fournisseur de vélos, ce qui pourrait engendrer des coûts supplémentaires.
 
-Avec une base de données non relationnelle (NoSql), les fiches techniques de chaque modèle de vélo seront difficilement représentables sur la même base de données que les informations concernant les locations de vélos. 
-Une base de données non relationnelle pourrait en revanche être utilisée pour stocker des informations sur les itinéraires de balades à proximité. Elle pourrait utiliser un modèle de document où chaque document représente un itinéraire avec des champs flexibles, on pourrait imaginer stocker un fichier contenant le chant des oiseaux recensés à proximité de chaque parcours, ce qui serait impossible dans une base de données relationnelle. 
+Avec une base de données non relationnelle (NoSql), les fiches techniques de chaque modèle de vélo seront difficilement représentables sur la même base de données que les informations concernant les locations de vélos.
+Une base de données non relationnelle pourrait en revanche être utilisée pour stocker des informations sur les itinéraires de balades à proximité. Elle pourrait utiliser un modèle de document où chaque document représente un itinéraire avec des champs flexibles, on pourrait imaginer stocker un fichier contenant le chant des oiseaux recensés à proximité de chaque parcours, ce qui serait impossible dans une base de données relationnelle.
 Les projets sont parfois commencés en NoSql avant que leur structure ne soit figée sur une architecture de base de données relationnelle.
 
 
@@ -49,12 +49,12 @@ G. Quelles sont les propriétés ACID ?
 Les propriétés ACID sont un ensemble de caractéristiques qui garantissent la fiabilité des transactions dans une base de données relationnelle.
 Atomicity : Opération indivisible des transactions.
 Consistency: préserve la cohérence de la requête.
-Isolation : Chaque transaction n’interfère pas d’autres possibles transactions simultanées 
+Isolation : Chaque transaction n’interfère pas d’autres possibles transactions simultanées
 Durabilité : Persistance des modifications en cas de panne du système
 
 
 H. Définissez les méthodes Merise et UML. Quelles sont leur utilité dans le monde de l’informatique ? Donnez des cas précis d’utilisation avec des schémas.
-Merise : 
+Merise :
 Méthodologie de développement et de gestion de projet informatique, elle suggère une gestion de données en 3 niveaux, conceptuel, logique et physique.
 Peut être utilisé comme système de gestion RH dans le cadre des informations relatives aux employés sur un schéma MCD avec des entités type Employé, Département, Salaire etc …
 UML :
